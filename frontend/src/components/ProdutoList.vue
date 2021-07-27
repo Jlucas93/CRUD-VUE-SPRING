@@ -228,12 +228,10 @@ export default {
                 codigo: this.produto.codigo,
                 categoria: this.produto.categoria,
                 status: this.selectedStatus.value,
-                descricao: this.descricao,
+                descricao: this.produto.descricao,
                 quantidade: this.quantidade
             }
-            console.log(data.status);
-            console.log(this.selectedstatus);
-            console.log(data.descricao);
+                console.log(data.descricao);
                 ProdutoDataService.create(data)
                 .then(response => {
                     this.produto.id = response.data.id
