@@ -229,7 +229,7 @@ export default {
                 categoria: this.produto.categoria,
                 status: this.selectedStatus.value,
                 descricao: this.produto.descricao,
-                quantidade: this.quantidade
+                quantidade: this.produto.quantidade
             }
                 console.log(data.descricao);
                 ProdutoDataService.create(data)
