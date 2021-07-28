@@ -15,6 +15,7 @@ import Dropdown from 'primevue/dropdown';
 import Dialog from 'primevue/dialog';
 import RadioButton from 'primevue/radiobutton';
 import InputNumber from 'primevue/inputnumber';
+import Textarea from 'primevue/textarea';
 
 
 Vue.config.productionTip = false
@@ -28,6 +29,7 @@ Vue.component('InputNumber', InputNumber);
 Vue.component('Dialog', Dialog);
 Vue.component('RadioButton', RadioButton);
 Vue.component('Dropdown', Dropdown);
+Vue.component('Textarea', Textarea);
 
 new Vue({
   router,
