@@ -3,7 +3,7 @@
 Projeto utilizando srping boot e vue.js
 
 **tecnologia**
-Java / Spring boot / HTML / CSS / JavaScript / Vue.js
+Java / Spring boot / HTML / JavaScript / Vue.js
 
 **autor**
  Nome | GitHub | Likedin | E-mail
