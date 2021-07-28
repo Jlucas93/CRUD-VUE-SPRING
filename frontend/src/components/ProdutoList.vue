@@ -282,7 +282,7 @@ export default {
     },
     mounted() {
         this.retrieveProdutos();
-     }
+    }
 }
 </script>
 
