@@ -3,21 +3,21 @@
        
             <Toolbar class="p-mb-4">
                 <template #left>
-                    <Button label="New" icon="pi pi-plus" class="p-button-success p-mr-2" @click="fazercadastro"  />
-                    <Button label="Delete" icon="pi pi-trash" class="p-button-danger" @click="deleteSelectedProducts" :disabled="!produtosSelecionados || !produtosSelecionados.length"  />                   
+                    <Button label="Novo" icon="pi pi-plus" class="p-button-success p-mr-2" @click="fazercadastro"  />
+                    <Button label="Excluir" icon="pi pi-trash" class="p-button-danger" @click="deleteSelectedProducts" :disabled="!produtosSelecionados || !produtosSelecionados.length"  />                   
                 </template>
                 
             </Toolbar>
         
             <DataTable  :value= "produtos" :selection.sync="produtosSelecionados" dataKey= "id" :paginator="true" :rows="10" :filters="filters"
             paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" :rowsPerPageOptions="[5,10,25]"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products">
+    currentPageReportTemplate="Mostrando {first} de {last} até {totalRecords} produtos">
                 <template #header>
                     <div class="table-header">
-                        <h5 class="p-m-0">Lista de produtos</h5>
+                        <h5 class="p-m-0">Gerenciar Produto</h5>
                         <span class="p-input-icon-left">
                             <i class="pi pi-search" />
-                            <InputText v-model="filters['global']" placeholder="Procurar..." />
+                            <InputText v-model="filters['global']" placeholder="Nome do Produto..." />
                         </span>
                     </div>
                 </template>
