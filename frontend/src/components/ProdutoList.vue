@@ -50,14 +50,12 @@
                     <label for="descricao">Descrição</label>
                     <Textarea id="descricao" v-model="produto.descricao" required="true" rows="3" cols="52" />
                 </div>
-
                 <div class="p-field">
 				<label for="statusinventorio" class="p-mb-3">Status do invetário</label>
 				<Dropdown id="statusinventorio" v-model="selectedStatus" :options="statuses" optionLabel="code" placeholder="Selececione o Status">
 
 				</Dropdown>
 			</div>
-
                 <div class="p-field">
                 <label class="p-mb-3">Categoria</label>
                 <div class="p-formgrid p-grid">
@@ -65,12 +63,10 @@
                         <RadioButton id="category1" name="category" value="CATEGORIA1" v-model="produto.categoria" />
                         <label for="category1">Categoria1</label>
                     </div>
-
                     <div class="p-field-radiobutton p-col-6">
                         <RadioButton id="category3" name="category" value="CATEGORIA2" v-model="produto.categoria" />
                         <label for="category3">Categoria2</label>
                     </div>
-
                     <div class="p-field-radiobutton p-col-6">
                         <RadioButton id="categoria3" name="categoria" value="CATEGORIA3" v-model="produto.categoria" />
                         <label for="categoria3">Categoria3</label>
@@ -79,11 +75,8 @@
                         <RadioButton id="categoria4" name="categoria" value="CATEGORIA4" v-model="produto.categoria" />
                         <label for="categoria4">Categoria4</label>
                     </div>
-
                 </div>
             </div>
-
-
                 <div class="p-formgrid p-grid">
                  <div class="p-field">
                     <label for="preco">Preço</label>
@@ -142,10 +135,8 @@
                         <RadioButton id="categoria4" name="categoria" value="CATEGORIA4" v-model="produto.categoria" />
                         <label for="categoria4">Categoria4</label>
                     </div>
-
                 </div>
             </div>
-
                 <div class="p-formgrid p-grid">
                  <div class="p-field">
                     <label for="preco">Preço</label>
@@ -169,7 +160,7 @@
             <Dialog :visible.sync="modalDeletar" :style="{width: '450px'}" header="Confirm" :modal="true">
                 <div class="confirmation-content">
                     <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem" />
-                    <span >Tem certeza que desja deletar?   ?</span>
+                    <span >Tem certeza que desja deletar o produto?</span>
                 </div>
                 <template #footer>
                     <Button label="Não" icon="pi pi-times" class="p-button-text" @click="modalDeletar = false"/>
@@ -204,6 +195,7 @@ export default {
             modalUpdate:false,
             produto:{},
             selectedStatus: null,
+            descricao:"olá",
             statuses: [
 				{code: 'emestoque', value: 'EMESTOQUE'},
 				{code: 'baixoestoque', value: 'BAIXOESTOQUE'},
@@ -221,7 +213,6 @@ export default {
             this.produto = {};
         },
         criarProduto() {
-            console.log(this.produto);
             var data = {
                 nome: this.produto.nome,
                 preco: this.produto.preco,
@@ -231,14 +222,11 @@ export default {
                 descricao: this.produto.descricao,
                 quantidade: this.produto.quantidade
             }
-                console.log(data.descricao);
-                ProdutoDataService.create(data)
+                ProdutoDataService.create(data)                
                 .then(response => {
                     this.produto.id = response.data.id
                     this.modalCreate = !this.modalCreate;
                     window.location.reload();
-                    
-                    
                 })
                 .catch( e => {
                     alert(e)
@@ -252,8 +240,7 @@ export default {
         retrieveProdutos() {
              ProdutoDataService.getAll()
                 .then(response => {
-                    this.produtos = response.data
-            
+                    this.produtos = response.data            
                 })
                 .catch(e => {
                     alert(e)
@@ -266,18 +253,16 @@ export default {
             ProdutoDataService.update(this.produto.id, this.produto)
             .then(() => {
                 console.log(this.produto);
-
             })
             .catch(e => {
             alert(e)
             });           
 
-        },
-        
+        },        
          deletar(id){
                 this.modalDeletar = !this.modalDeletar
                 this.localid = id;
-            },
+        },
 
         deletarProduto(){          
             ProdutoDataService.delete(this.localid)
