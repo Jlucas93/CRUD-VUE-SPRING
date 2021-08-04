@@ -1,6 +1,6 @@
 # ProjetosGitHub-CRUD-VUE-Spring
 # CRUD-VUE-SPRING
-Projeto utilizando srping boot e vue.js
+Projeto utilizando srping boot e vue.js com lib do prime vue.
 
 **tecnologia**
 Java / Spring boot / HTML / JavaScript / Vue.js
